@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyu63ojwl2h1"]
+
+[ext_resource type="Texture2D" uid="uid://bi5lxgxuyyj0x" path="res://entities/asteroids/medium_asteroid/medium_asteroid.png" id="1_05pv5"]
+[ext_resource type="Script" path="res://entities/asteroids/medium_asteroid/medium_asteroid.gd" id="1_7f6rw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_362i2"]
+radius = 30.0
+
+[node name="MediumAsteroid" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_7f6rw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_05pv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_362i2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

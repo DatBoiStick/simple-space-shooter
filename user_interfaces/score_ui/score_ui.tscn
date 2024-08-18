@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx5nm3rm76u5r"]
+
+[ext_resource type="Script" path="res://user_interfaces/score_ui/score_ui.gd" id="1_bgyhs"]
+
+[node name="ScoreUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bgyhs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cslonxak71q7b"]
+
+[ext_resource type="PackedScene" uid="uid://kocrfwiyyui6" path="res://entities/player/player.tscn" id="1_u8384"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_ujenc"]
+[ext_resource type="PackedScene" uid="uid://dnvxngs2juqkg" path="res://spawners/asteroid_spawner/asteroid_spawner.tscn" id="2_8x8tc"]
+[ext_resource type="PackedScene" uid="uid://dx5nm3rm76u5r" path="res://user_interfaces/score_ui/score_ui.tscn" id="3_1trmb"]
+[ext_resource type="PackedScene" uid="uid://keicn88v8766" path="res://user_interfaces/pause_ui/pause_ui.tscn" id="5_she6g"]
+[ext_resource type="PackedScene" uid="uid://8ldhiu8pgym3" path="res://user_interfaces/game_over_ui/game_over_ui.tscn" id="6_ih51g"]
+
+[node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ujenc")
+
+[node name="World" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Player" parent="World" instance=ExtResource("1_u8384")]
+position = Vector2(240, 480)
+rotation = -1.5708
+
+[node name="AsteroidSpawner" parent="World" instance=ExtResource("2_8x8tc")]
+
+[node name="UserInterfaces" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="ScoreUI" parent="UserInterfaces" instance=ExtResource("3_1trmb")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="PauseUI" parent="UserInterfaces" instance=ExtResource("5_she6g")]
+visible = false
+
+[node name="GameOverUI" parent="UserInterfaces" instance=ExtResource("6_ih51g")]
+visible = false
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="destroyed" from="World/Player" to="." method="_on_player_destroyed"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
