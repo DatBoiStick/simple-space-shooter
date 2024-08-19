@@ -6,11 +6,8 @@ const ACCELERATION: float = 200
 const DECELERATION: float = 150
 const ROTATION_SPEED: float = 3
 var rotation_direction: float = 0
-var screen_size: Vector2
+var screen_size: Vector2 = Vector2(480, 640)
 signal destroyed
-
-func _ready() -> void:
-	screen_size = get_viewport().size
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)

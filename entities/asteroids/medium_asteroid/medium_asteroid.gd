@@ -8,7 +8,7 @@ var direction: Vector2 = Vector2.RIGHT
 const MIN_ROTATION_SPEED: float = -2.0
 const MAX_ROTATION_SPEED: float = 2.0
 var rotation_speed: float
-var screen_size: Vector2
+var screen_size: Vector2 = Vector2(480, 640)
 var margin: float = 128
 
 func _ready() -> void:
@@ -17,8 +17,6 @@ func _ready() -> void:
 	move_speed = randf_range(MIN_MOVE_SPEED, MAX_MOVE_SPEED)
 	
 	rotation_speed = randf_range(MIN_ROTATION_SPEED, MAX_ROTATION_SPEED)
-	
-	screen_size = get_viewport().size
 
 func _physics_process(delta: float) -> void:
 	position += direction * move_speed * delta
