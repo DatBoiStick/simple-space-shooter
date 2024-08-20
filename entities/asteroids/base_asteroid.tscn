@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4wgmnv7evko5"]
+
+[ext_resource type="Script" path="res://entities/asteroids/base_asteroid.gd" id="1_xns2r"]
+[ext_resource type="Texture2D" uid="uid://nc8s0ub17s3r" path="res://entities/asteroids/small_asteroid/small_asteroid.png" id="2_f30y2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_osecu"]
+radius = 14.0
+
+[node name="BaseAsteroid" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_xns2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f30y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_osecu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
