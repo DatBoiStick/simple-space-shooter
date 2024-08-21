@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://kvxlj11acuvb"]
+[gd_scene load_steps=5 format=3 uid="uid://kvxlj11acuvb"]
 
 [ext_resource type="Texture2D" uid="uid://bi5lxgxuyyj0x" path="res://entities/asteroids/medium_asteroid/medium_asteroid.png" id="1_05pv5"]
 [ext_resource type="PackedScene" uid="uid://c4wgmnv7evko5" path="res://entities/asteroids/base_asteroid.tscn" id="1_qrmkh"]
 [ext_resource type="Script" path="res://entities/asteroids/medium_asteroid/medium_asteroid.gd" id="2_pula5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3qjiu"]
+radius = 32.0
 
 [node name="MediumAsteroid" instance=ExtResource("1_qrmkh")]
 script = ExtResource("2_pula5")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("1_05pv5")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_3qjiu")

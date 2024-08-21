@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nc8s0ub17s3r" path="res://entities/asteroids/small_asteroid/small_asteroid.png" id="2_f30y2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_osecu"]
-radius = 14.0
+radius = 16.0
 
 [node name="BaseAsteroid" type="Area2D"]
 collision_layer = 2

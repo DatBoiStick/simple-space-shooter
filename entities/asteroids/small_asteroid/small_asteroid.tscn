@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd1a26fjev32s"]
+[gd_scene load_steps=4 format=3 uid="uid://dd1a26fjev32s"]
 
 [ext_resource type="PackedScene" uid="uid://c4wgmnv7evko5" path="res://entities/asteroids/base_asteroid.tscn" id="1_mnqco"]
 [ext_resource type="Script" path="res://entities/asteroids/small_asteroid/small_asteroid.gd" id="2_gfbd0"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dhuu"]
+radius = 16.0
+
 [node name="SmallAsteroid" instance=ExtResource("1_mnqco")]
 script = ExtResource("2_gfbd0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_8dhuu")
