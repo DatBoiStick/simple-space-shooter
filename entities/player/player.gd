@@ -41,7 +41,10 @@ func _input(event: InputEvent) -> void:
 		bullet.global_rotation = $ShootingPoint.global_rotation
 		$ShootingPoint.add_child(bullet)
 
-# Method to destroy the player when hit by an asteroid.
 func take_damage() -> void:
+	var player_destroyed_animation: AnimatedSprite2D = preload("res://entities/player/animation/player_destroyed.tscn").instantiate()
+	var current_position: Vector2 = position
+	player_destroyed_animation.position = current_position
+	get_parent().add_child(player_destroyed_animation)
 	queue_free()
 	destroyed.emit()
